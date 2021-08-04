@@ -1,0 +1,54 @@
+<%- include('includes/head') %>
+  <%- include('includes/nave') %>
+    <div class="conteiner">
+      <div class="row">
+        <div class="col-lg-2"> </div>
+        <div class="col-lg-8 my-3">
+          <h1 class="display-1 text-center">Cria conta / Entrar</h1>
+          <p class="text-center lead">faça login ou crie su conta abaixo</p>
+          <%- include('includes/messeges') %>
+
+          <div class="row">
+            <div class="col-lg my-5">
+              <h3>faça seu cadastro</h3>
+              <p>se não tem conta faça seu cadastro</p>
+              <form class="form-cadastro" action="/login/register" method="POST">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="mb-3">
+                  <label>Seu Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                  <label>Sua Senha</label>
+                  <input type="password" class="form-control" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Criar Conta</button>
+              </form>
+            </div>
+
+
+
+            <div class="col-lg my-5">
+              <h3>entre no sistema</h3>
+              <form class="form-login" action="/login/login" method="POST">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="mb-3">
+                  <label>Seu Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                  <label>Sua Senha</label>
+                  <input type="password" class="form-control" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+              </form>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <%- include('includes/footer') %>

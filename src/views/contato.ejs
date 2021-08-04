@@ -1,0 +1,45 @@
+<%- include('includes/head') %> <%- include('includes/nave') %>
+<div class="conteiner">
+  <div class="row">
+    <div class="col-lg-2"> </div>
+      <div class="col-lg-8 my-3">
+        <h1 class="display-1 text-center">Contato</h1>  
+        <p class="text-center lead">Crie ou edite seu contato</p>
+        <%-include ('includes/messeges')%>
+
+        <div class="row">
+            <div class="col-lg">
+              <h3>Cadastrar Contato</h3>
+              <p>insira as informações a seguir:</p>
+              <% if (contato._id){ %> 
+              <form lass="form-contato" action="/contato/edit/<%= contato._id %>" method="POST">
+                <%  } else {  %>
+              <form class="form-contato" action="/contato/register" method="POST">
+                  <% } %>
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="mb-3">
+                  <label>Nome</label>
+                  <input type="text" class="form-control" name="nome" value= <%= contato.nome %>>
+                </div>
+                <div class="mb-3">
+                  <label>sobrenome</label>
+                  <input type="text" class="form-control" name="sobrenome"  value=<%= contato.sobrenome %>>
+                </div>
+                <div class="mb-3">
+                  <label>email</label>
+                  <input  type="email" class="form-control" name="email" value=<%= contato.email %>>
+                </div>
+                <div class="mb-3">
+                  <label>telefone</label>
+                  <input  type="tel" class="form-control" name="telefone" value=<%= contato.telefone %>>
+                </div>
+                <button type="submit" class="btn btn-primary">Criar Contato</button>
+                <a  href="/contato/index"><button type="button" class="btn btn-primary">Criar novo contato</button></a>
+                
+              </form>
+            </div>
+
+        <div class="col-lg-2"> </div> 
+  </div>
+</div>
+<%- include('includes/footer') %>
